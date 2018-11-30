@@ -5,7 +5,7 @@ package com.example.hades.java.code.framework;
  */
 public final class Log {
     public static void d(String tag, String func, String msg) {
-        System.out.println(tag + ":" + "[" + func + "]," + msg);
+        System.out.println(tag + ":" + "" + func + "," + msg);
     }
 
     public static void d(String tag, String func, String msg, boolean ignoreTagFuncInfo) {
