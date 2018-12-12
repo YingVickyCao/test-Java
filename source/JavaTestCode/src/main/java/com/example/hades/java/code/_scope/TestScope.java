@@ -9,7 +9,7 @@ public class TestScope {
 
     public static void main(String[] args) {
     }
-    
+
     private void test() {
         int num = 10;
         Log.d(TAG, "test", String.valueOf(this.num));
