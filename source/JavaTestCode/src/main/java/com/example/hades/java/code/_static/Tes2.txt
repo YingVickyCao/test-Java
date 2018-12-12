@@ -1,0 +1,177 @@
+Classfile /Users/hades/Documents/GitHub/JavaAboutDemos/source/JavaTestCode/src/main/java/com/example/hades/java/code/_static/Test.class
+  Last modified Dec 12, 2018; size 813 bytes
+  MD5 checksum 67a031f986be95c7446e514cf174069e
+  Compiled from "Test.java"
+public class com.example.hades.java.code._static.Test
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #10.#19        // java/lang/Object."<init>":()V
+   #2 = Fieldref           #20.#21        // java/lang/System.out:Ljava/io/PrintStream;
+   #3 = Fieldref           #6.#22         // com/example/hades/java/code/_static/StaticClass.num:I
+   #4 = Methodref          #23.#24        // java/io/PrintStream.println:(I)V
+   #5 = Methodref          #23.#25        // java/io/PrintStream.println:()V
+   #6 = Class              #26            // com/example/hades/java/code/_static/StaticClass
+   #7 = Methodref          #6.#19         // com/example/hades/java/code/_static/StaticClass."<init>":()V
+   #8 = Methodref          #6.#27         // com/example/hades/java/code/_static/StaticClass.increment:()V
+   #9 = Class              #28            // com/example/hades/java/code/_static/Test
+  #10 = Class              #29            // java/lang/Object
+  #11 = Utf8               <init>
+  #12 = Utf8               ()V
+  #13 = Utf8               Code
+  #14 = Utf8               LineNumberTable
+  #15 = Utf8               main
+  #16 = Utf8               ([Ljava/lang/String;)V
+  #17 = Utf8               SourceFile
+  #18 = Utf8               Test.java
+  #19 = NameAndType        #11:#12        // "<init>":()V
+  #20 = Class              #30            // java/lang/System
+  #21 = NameAndType        #31:#32        // out:Ljava/io/PrintStream;
+  #22 = NameAndType        #33:#34        // num:I
+  #23 = Class              #35            // java/io/PrintStream
+  #24 = NameAndType        #36:#37        // println:(I)V
+  #25 = NameAndType        #36:#12        // println:()V
+  #26 = Utf8               com/example/hades/java/code/_static/StaticClass
+  #27 = NameAndType        #38:#12        // increment:()V
+  #28 = Utf8               com/example/hades/java/code/_static/Test
+  #29 = Utf8               java/lang/Object
+  #30 = Utf8               java/lang/System
+  #31 = Utf8               out
+  #32 = Utf8               Ljava/io/PrintStream;
+  #33 = Utf8               num
+  #34 = Utf8               I
+  #35 = Utf8               java/io/PrintStream
+  #36 = Utf8               println
+  #37 = Utf8               (I)V
+  #38 = Utf8               increment
+{
+  public com.example.hades.java.code._static.Test();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 3: 0
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=3, args_size=1
+         0: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+         3: getstatic     #3                  // Field com/example/hades/java/code/_static/StaticClass.num:I
+         6: invokevirtual #4                  // Method java/io/PrintStream.println:(I)V
+         9: bipush        20
+        11: putstatic     #3                  // Field com/example/hades/java/code/_static/StaticClass.num:I
+        14: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        17: getstatic     #3                  // Field com/example/hades/java/code/_static/StaticClass.num:I
+        20: invokevirtual #4                  // Method java/io/PrintStream.println:(I)V
+        23: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        26: invokevirtual #5                  // Method java/io/PrintStream.println:()V
+        29: new           #6                  // class com/example/hades/java/code/_static/StaticClass
+        32: dup
+        33: invokespecial #7                  // Method com/example/hades/java/code/_static/StaticClass."<init>":()V
+        36: astore_1
+        37: new           #6                  // class com/example/hades/java/code/_static/StaticClass
+        40: dup
+        41: invokespecial #7                  // Method com/example/hades/java/code/_static/StaticClass."<init>":()V
+        44: astore_2
+        45: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        48: getstatic     #3                  // Field com/example/hades/java/code/_static/StaticClass.num:I
+        51: invokevirtual #4                  // Method java/io/PrintStream.println:(I)V
+        54: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        57: aload_1
+        58: pop
+        59: getstatic     #3                  // Field com/example/hades/java/code/_static/StaticClass.num:I
+        62: invokevirtual #4                  // Method java/io/PrintStream.println:(I)V
+        65: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        68: aload_2
+        69: pop
+        70: getstatic     #3                  // Field com/example/hades/java/code/_static/StaticClass.num:I
+        73: invokevirtual #4                  // Method java/io/PrintStream.println:(I)V
+        76: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        79: invokevirtual #5                  // Method java/io/PrintStream.println:()V
+        82: getstatic     #3                  // Field com/example/hades/java/code/_static/StaticClass.num:I
+        85: bipush        30
+        87: iadd
+        88: putstatic     #3                  // Field com/example/hades/java/code/_static/StaticClass.num:I
+        91: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        94: getstatic     #3                  // Field com/example/hades/java/code/_static/StaticClass.num:I
+        97: invokevirtual #4                  // Method java/io/PrintStream.println:(I)V
+       100: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       103: aload_1
+       104: pop
+       105: getstatic     #3                  // Field com/example/hades/java/code/_static/StaticClass.num:I
+       108: invokevirtual #4                  // Method java/io/PrintStream.println:(I)V
+       111: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       114: aload_2
+       115: pop
+       116: getstatic     #3                  // Field com/example/hades/java/code/_static/StaticClass.num:I
+       119: invokevirtual #4                  // Method java/io/PrintStream.println:(I)V
+       122: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       125: invokevirtual #5                  // Method java/io/PrintStream.println:()V
+       128: invokestatic  #8                  // Method com/example/hades/java/code/_static/StaticClass.increment:()V
+       131: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       134: getstatic     #3                  // Field com/example/hades/java/code/_static/StaticClass.num:I
+       137: invokevirtual #4                  // Method java/io/PrintStream.println:(I)V
+       140: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       143: aload_1
+       144: pop
+       145: getstatic     #3                  // Field com/example/hades/java/code/_static/StaticClass.num:I
+       148: invokevirtual #4                  // Method java/io/PrintStream.println:(I)V
+       151: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       154: aload_2
+       155: pop
+       156: getstatic     #3                  // Field com/example/hades/java/code/_static/StaticClass.num:I
+       159: invokevirtual #4                  // Method java/io/PrintStream.println:(I)V
+       162: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       165: invokevirtual #5                  // Method java/io/PrintStream.println:()V
+       168: aload_1
+       169: pop
+       170: invokestatic  #8                  // Method com/example/hades/java/code/_static/StaticClass.increment:()V
+       173: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       176: getstatic     #3                  // Field com/example/hades/java/code/_static/StaticClass.num:I
+       179: invokevirtual #4                  // Method java/io/PrintStream.println:(I)V
+       182: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       185: aload_1
+       186: pop
+       187: getstatic     #3                  // Field com/example/hades/java/code/_static/StaticClass.num:I
+       190: invokevirtual #4                  // Method java/io/PrintStream.println:(I)V
+       193: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       196: aload_2
+       197: pop
+       198: getstatic     #3                  // Field com/example/hades/java/code/_static/StaticClass.num:I
+       201: invokevirtual #4                  // Method java/io/PrintStream.println:(I)V
+       204: return
+      LineNumberTable:
+        line 25: 0
+        line 26: 9
+        line 27: 14
+        line 28: 23
+        line 30: 29
+        line 31: 37
+        line 33: 45
+        line 34: 54
+        line 35: 65
+        line 36: 76
+        line 38: 82
+        line 39: 91
+        line 40: 100
+        line 41: 111
+        line 42: 122
+        line 44: 128
+        line 45: 131
+        line 46: 140
+        line 47: 151
+        line 48: 162
+        line 50: 168
+        line 51: 173
+        line 52: 182
+        line 53: 193
+        line 54: 204
+}
+SourceFile: "Test.java"
