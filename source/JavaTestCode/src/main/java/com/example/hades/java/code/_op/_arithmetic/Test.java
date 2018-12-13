@@ -9,7 +9,9 @@ public class Test {
 //        preIncrement();
 //        postIncrement();
 
-        relationalOperator();
+//        relationalOperator();
+
+        logicOperatorShortCircuit();
     }
 
     static void pInt(String s, int i) {
@@ -102,5 +104,9 @@ public class Test {
         v1.i = v2.i = 100;
         // 重写equals()前：false，后true
         System.out.println(v1.equals(v2));
+    }
+
+    private static void logicOperatorShortCircuit(){
+        new ShortCircuit().test();
     }
 }
