@@ -1,6 +1,6 @@
 package com.example.hades.java.code._primitive_type;
 
-import com.example.hades.java.code.framework.Log;
+import com.example.hades.java.code._framework.Log;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

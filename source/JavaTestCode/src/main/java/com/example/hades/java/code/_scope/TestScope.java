@@ -1,6 +1,6 @@
 package com.example.hades.java.code._scope;
 
-import com.example.hades.java.code.framework.Log;
+import com.example.hades.java.code._framework.Log;
 
 public class TestScope {
     private static final String TAG = TestScope.class.getSimpleName();
