@@ -1,14 +1,20 @@
 package com.example.hades.java.code._object._this;
 
 public class Apple {
-    int i = 1;
+    private int i = 1;
+    private String color;
 
-    public static void main(String[] args) {
-        Apple apple = new Apple();
-        apple.print(1);
+    public Apple() {
 
-        apple.increase().increase().print();
-        apple.getPeeled().print();
+    public Apple(int i) {
+        this.i = i;
+    }
+
+    public Apple(int i, String color) {
+//        this.i = i;
+        this(i);
+//        this(i);
+        this.color = color;
     }
 
     void print(int a) {
@@ -16,6 +22,7 @@ public class Apple {
     }
 
     void print() {
+//        this(i);
         System.out.println(i);
     }
 
@@ -35,5 +42,12 @@ public class Apple {
         }
     }
 
+    public static void main(String[] args) {
+//        Apple apple = new Apple();
+        Apple apple = new Apple(10, "Green");
+        apple.print(1);
 
+        apple.increase().increase().print();
+        apple.getPeeled().print();
+    }
 }
