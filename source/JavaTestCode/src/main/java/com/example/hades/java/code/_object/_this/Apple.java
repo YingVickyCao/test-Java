@@ -5,6 +5,7 @@ public class Apple {
     private String color;
 
     public Apple() {
+    }
 
     public Apple(int i) {
         this.i = i;
