@@ -2,7 +2,8 @@ package com.example.hades.java.code._object._initial_value;
 
 
 public class TestInitialValue {
-    int n = getNum(a); // ERROR:向前引用错误 illegal forward reference
+    // ERROR:向前引用错误 illegal forward reference
+//    int n = getNum(a);
     int a = 100;
     int a2 = getInt();
     int a3 = getInt(100);
