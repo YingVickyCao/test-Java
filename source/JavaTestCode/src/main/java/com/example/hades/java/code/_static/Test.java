@@ -42,7 +42,7 @@ public class Test {
     }
 }
 /*
-    java  com.example.hades.java.code._static.OverLoadingOrder 10 20 30
+    java  com.example.hades.java.code._2_static.OverLoadingOrder 10 20 30
 
     args[0]=10
     args[1]=20
