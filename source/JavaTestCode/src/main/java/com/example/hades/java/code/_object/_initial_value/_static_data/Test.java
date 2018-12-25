@@ -1,9 +1,0 @@
-package com.example.hades.java.code._object._initial_value._static_data;
-
-public class Test {
-    public static void main(String[] args) {
-        new Counter(2);
-    }
-
-    static Counter counter = new Counter(1);
-}
