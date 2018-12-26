@@ -1,0 +1,9 @@
+Compiled from "Nums.java"
+public final class Nums extends java.lang.Enum<Nums> {
+  public static final Nums ONE;
+  public static final Nums TWO;
+  public static final Nums THREE;
+  public static Nums[] values();
+  public static Nums valueOf(java.lang.String);
+  static {};
+}
