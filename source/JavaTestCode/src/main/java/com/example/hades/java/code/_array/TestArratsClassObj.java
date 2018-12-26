@@ -1,4 +1,4 @@
-package com.example.hades.java.code._object._initial_value._4_array;
+package com.example.hades.java.code._array;
 
 public class TestArratsClassObj {
     Integer[] a1 = {new Integer(1), new Integer(2), 3,}; // Recommend,分配存储空间
