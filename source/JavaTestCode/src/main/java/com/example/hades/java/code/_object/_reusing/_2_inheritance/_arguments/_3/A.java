@@ -1,4 +1,4 @@
-package com.example.hades.java.code._object._reusing._inheritance._arguments._3;
+package com.example.hades.java.code._object._reusing._2_inheritance._arguments._3;
 
 public class A {
     int num;

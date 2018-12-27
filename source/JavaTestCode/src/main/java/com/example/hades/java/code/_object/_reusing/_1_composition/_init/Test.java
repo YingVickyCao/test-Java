@@ -1,4 +1,4 @@
-package com.example.hades.java.code._object._reusing._init;
+package com.example.hades.java.code._object._reusing._1_composition._init;
 
 public class Test {
     private A a;
