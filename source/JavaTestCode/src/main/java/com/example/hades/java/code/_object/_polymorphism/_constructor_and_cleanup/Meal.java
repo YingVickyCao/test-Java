@@ -1,4 +1,4 @@
-package com.example.hades.java.code._object._polymorphism._constructor;
+package com.example.hades.java.code._object._polymorphism._constructor_and_cleanup;
 
 public class Meal {
     private static final String TAG = Meal.class.getSimpleName();
