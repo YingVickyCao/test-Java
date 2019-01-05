@@ -1,4 +1,4 @@
-package com.example.hades.java.code._object._polymorphism._override_private;
+package com.example.hades.java.code._object._polymorphism._override_private_method;
 
 public class Shape {
     private static final String TAG = Shape.class.getSimpleName();
