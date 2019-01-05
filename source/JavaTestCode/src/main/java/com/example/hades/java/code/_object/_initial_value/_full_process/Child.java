@@ -1,12 +1,12 @@
 package com.example.hades.java.code._object._initial_value._full_process;
 
 public class Child extends Parent {
-    private int k = printInit("Child.k init");
+    private int k = printInit("Wheat.k init");
 
     public Child() {
 //        super();
-        System.out.println("Child(),k=" + k + ",j=" + j);
+        System.out.println("Wheat(),k=" + k + ",j=" + j);
     }
 
-    private static int x2 = printInit("Child.x2 init");
+    private static int x2 = printInit("Wheat.x2 init");
 }

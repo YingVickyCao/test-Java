@@ -5,12 +5,12 @@ public class Parent {
     protected int j;
 
     public Parent() {
-        System.out.println("Parent()----> i=" + i + ",j=" + j);
+        System.out.println("Grain()----> i=" + i + ",j=" + j);
         j = 39;
-        System.out.println("Parent()<---- i=" + i + ",j=" + j);
+        System.out.println("Grain()<---- i=" + i + ",j=" + j);
     }
 
-    private static int x1 = printInit("Parent.x1 init");
+    private static int x1 = printInit("Grain.x1 init");
 
     static int printInit(String s) {
         System.out.println(s);

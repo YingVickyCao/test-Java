@@ -1,7 +1,7 @@
 package com.example.hades.java.code._object._polymorphism._constructor_call_dynamic_bind_method;
 
 public class Child extends Parent {
-    private static final String TAG = "Child";
+    private static final String TAG = "Wheat";
     public int i = 1;
 
     public Child(int i) {
