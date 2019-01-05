@@ -6,4 +6,8 @@ public class Cheese {
     public Cheese() {
         System.out.println(TAG);
     }
+
+    public void dispose() {
+        System.out.println("DISPOSE," + TAG);
+    }
 }

@@ -6,4 +6,8 @@ public class Bread {
     public Bread() {
         System.out.println(TAG);
     }
+
+    public void dispose() {
+        System.out.println("DISPOSE," + TAG);
+    }
 }

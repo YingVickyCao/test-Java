@@ -10,4 +10,8 @@ public class Meal {
         i = 2;
         System.out.println(TAG + ",i=" + i + ",END");
     }
+
+    public void dispose() {
+        System.out.println("DISPOSE," + TAG);
+    }
 }

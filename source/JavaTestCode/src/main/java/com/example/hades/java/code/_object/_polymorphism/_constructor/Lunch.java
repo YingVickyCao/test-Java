@@ -9,7 +9,16 @@ public class Lunch extends Meal {
         System.out.println(TAG);
     }
 
+    public void dispose() {
+        super.dispose();
+        cheese.dispose();
+        bread.dispose();
+
+        System.out.println("DISPOSE," + TAG);
+    }
+
     public static void main(String[] args) {
         Lunch lunch = new Lunch();
+        lunch.dispose();
     }
 }
