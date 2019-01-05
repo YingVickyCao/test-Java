@@ -6,7 +6,8 @@ public class Lunch extends Meal {
     Cheese cheese = new Cheese();
 
     public Lunch() {
-        System.out.println(TAG);
+        System.out.println(TAG+" constructor,START");
+        System.out.println(TAG+" constructor,END");
     }
 
     public void dispose() {

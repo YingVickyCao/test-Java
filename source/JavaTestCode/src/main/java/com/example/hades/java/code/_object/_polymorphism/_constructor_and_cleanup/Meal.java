@@ -6,9 +6,9 @@ public class Meal {
     private int i = 1;
 
     public Meal() {
-        System.out.println(TAG + ",i=" + i + ",START");
+        System.out.println(TAG + " constructor" + ",i=" + i + ",START");
         i = 2;
-        System.out.println(TAG + ",i=" + i + ",END");
+        System.out.println(TAG + " constructor" + ",i=" + i + ",END");
     }
 
     public void dispose() {
