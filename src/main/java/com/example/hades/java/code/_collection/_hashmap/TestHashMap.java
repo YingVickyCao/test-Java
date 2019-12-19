@@ -3,8 +3,6 @@ package com.example.hades.java.code._collection._hashmap;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.sun.xml.internal.fastinfoset.util.ValueArray.MAXIMUM_CAPACITY;
-
 public class TestHashMap {
     Map<Integer, Integer> map;
 
@@ -33,6 +31,7 @@ public class TestHashMap {
         n |= n >>> 4;
         n |= n >>> 8;
         n |= n >>> 16;
+        final int MAXIMUM_CAPACITY = 2147483647;
         return (n < 0) ? 1 : (n >= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
     }
 
