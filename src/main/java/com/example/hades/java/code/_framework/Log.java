@@ -4,6 +4,10 @@ package com.example.hades.java.code._framework;
  * Mock Log implementation for testing on non android host.
  */
 public final class Log {
+    public static void d(String tag, String msg) {
+        System.out.println(tag + ":" + msg);
+    }
+
     public static void d(String tag, String func, String msg) {
         System.out.println(tag + ":" + "" + func + "," + msg);
     }
