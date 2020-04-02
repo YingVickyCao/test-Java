@@ -2,7 +2,8 @@ package com.example.hades.java._object._overload._tostring;
 
 import java.util.List;
 
-public class P {
+//public class P {
+public class P extends Base {
     private boolean flag;
     private List<String> mNames;
 
@@ -22,12 +23,12 @@ public class P {
         mNames = names;
     }
 
-    @Override
-    public String toString() {
-        StringBuffer sb = new StringBuffer();
-        sb.append("{flag=").append(flag)
-                .append(", mNames=").append(null != mNames ? mNames.toString() : "null")
-                .append("}");
-        return sb.toString();
-    }
+//    @Override
+//    public String toString() {
+//        StringBuffer sb = new StringBuffer();
+//        sb.append("{flag=").append(flag)
+//                .append(", mNames=").append(null != mNames ? mNames.toString() : "null")
+//                .append("}");
+//        return sb.toString();
+//    }
 }
