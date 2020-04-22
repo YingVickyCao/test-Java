@@ -3,12 +3,13 @@ package com.hades.example.java.security;
 import java.util.Arrays;
 
 public class Test {
-    public static void main(String[]args){
+    public static void main(String[] args) {
         Test test = new Test();
-        test.testDec();
+//        test.testDec();
+        test.custom();
     }
 
-    private void testDec(){
+    private void des() {
         System.out.println("Dec, start");
         Des des = new Des();
 
@@ -21,5 +22,14 @@ public class Test {
         //        System.out.println((char)72); // H
 
         System.out.println("Dec, end");
+    }
+
+    private void custom() {
+        CustomCryp customCryp = new CustomCryp();
+        String encrypted = customCryp.encrypt(CustomCryp.TO_ENCRYPT_CONTENT);   // "Hi123"
+        System.out.println(encrypted);                                          // Ij234
+
+        String decrypted = customCryp.decrypt(CustomCryp.TO_DECRYPT_CONTENT);   // Ij234
+        System.out.println(decrypted);                                          // "Hi123"
     }
 }

@@ -11,7 +11,7 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
-public class Des {
+public class Des{
     private static final String TAG = Des.class.getSimpleName();
 
     public final static String TO_ENCRYPT_CONTENT = "Hi123";
@@ -20,17 +20,10 @@ public class Des {
     private final String ALGORITHM_NAME = "DES";
     private final String KEY = "abcdedfh"; // 密钥(8 bytes) = [97, 98, 99, 100, 101, 100, 102, 104]
 
-    /**
-     * //注意，加密，解密，秘钥都需要是字节数组
-     * 加密
-     */
     public byte[] encrypt(byte[] toEncryptContent) {
         return crypto(Cipher.ENCRYPT_MODE, toEncryptContent);
     }
 
-    /**
-     * 解密
-     */
     public byte[] decrypt(byte[] toDecryptContent) {
         return crypto(Cipher.DECRYPT_MODE, toDecryptContent);
     }
