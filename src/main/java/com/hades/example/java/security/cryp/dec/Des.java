@@ -1,4 +1,4 @@
-package com.hades.example.java.security;
+package com.hades.example.java.security.cryp.dec;
 
 import com.hades.example.java._framework.Log;
 

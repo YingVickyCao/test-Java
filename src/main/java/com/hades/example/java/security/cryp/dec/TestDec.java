@@ -1,12 +1,11 @@
-package com.hades.example.java.security;
+package com.hades.example.java.security.cryp.dec;
 
 import java.util.Arrays;
 
-public class Test {
+public class TestDec {
     public static void main(String[] args) {
-        Test test = new Test();
-//        test.testDec();
-        test.custom();
+        TestDec testDec = new TestDec();
+        testDec.des();
     }
 
     private void des() {
@@ -22,14 +21,5 @@ public class Test {
         //        System.out.println((char)72); // H
 
         System.out.println("Dec, end");
-    }
-
-    private void custom() {
-        CustomCryp customCryp = new CustomCryp();
-        String encrypted = customCryp.encrypt(CustomCryp.TO_ENCRYPT_CONTENT);   // "Hi123"
-        System.out.println(encrypted);                                          // Ij234
-
-        String decrypted = customCryp.decrypt(CustomCryp.TO_DECRYPT_CONTENT);   // Ij234
-        System.out.println(decrypted);                                          // "Hi123"
     }
 }

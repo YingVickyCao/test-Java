@@ -1,4 +1,4 @@
-package com.hades.example.java.security.md5;
+package com.hades.example.java.security.hash.md5;
 
 public class TestMD5 {
     MD5 md5 = new MD5();
@@ -6,6 +6,7 @@ public class TestMD5 {
     public static void main(String[] args) {
         TestMD5 testMD5 = new TestMD5();
         testMD5.test();
+//        testMD5.generatingChecksum();
     }
 
     private void test() {
@@ -13,10 +14,18 @@ public class TestMD5 {
         String userInputName = "ABC";
 
         String hashedOfDecryptedUserInputPassword = md5.hash(decryptedUserInputPassword);
-        System.out.println(hashedOfDecryptedUserInputPassword);
+        System.out.println(hashedOfDecryptedUserInputPassword); // 1F3870BE274F6C49B3E31A0C6728957F
 
         boolean isInValid = serverCheckPassword(decryptedUserInputPassword, hashedOfDecryptedUserInputPassword, userInputName);
         System.out.println(isInValid);
+    }
+
+    private void generatingChecksum() {
+        String filename = "src/main/resources/com/hades/example/java/test_md5.txt";
+        // 212A4C389DB4ECFACF61817A711CF892
+        // 2028FCFE49A4BB1075B29078798020C2
+        String checksum = md5.generateChecksum(filename);
+        System.out.println(checksum);
     }
 
     /**

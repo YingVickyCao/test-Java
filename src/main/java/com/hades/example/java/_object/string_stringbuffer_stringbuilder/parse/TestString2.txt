@@ -23,7 +23,7 @@ Constant pool:
   #14 = Utf8               ()V
   #15 = Utf8               Code
   #16 = Utf8               LineNumberTable
-  #17 = Utf8               test
+  #17 = Utf8               testDec
   #18 = Utf8               SourceFile
   #19 = Utf8               TestString2.java
   #20 = NameAndType        #13:#14        // "<init>":()V
@@ -54,7 +54,7 @@ Constant pool:
       LineNumberTable:
         line 6: 0
 
-  public void test();
+  public void testDec();
     descriptor: ()V
     flags: ACC_PUBLIC
     Code:

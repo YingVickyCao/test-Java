@@ -1,4 +1,4 @@
-package com.hades.example.java.security;
+package com.hades.example.java.security.cryp.custom;
 
 public class CustomCryp {
     public final static String TO_ENCRYPT_CONTENT = "Hi123";
