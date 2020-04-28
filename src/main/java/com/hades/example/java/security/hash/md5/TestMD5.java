@@ -6,7 +6,7 @@ public class TestMD5 {
     public static void main(String[] args) {
         TestMD5 testMD5 = new TestMD5();
         testMD5.test();
-//        testMD5.generatingChecksum();
+        testMD5.generatingChecksum();
     }
 
     private void test() {
