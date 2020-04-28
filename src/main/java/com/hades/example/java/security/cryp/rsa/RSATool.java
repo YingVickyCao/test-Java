@@ -1,5 +1,7 @@
 package com.hades.example.java.security.cryp.rsa;
 
+import com.hades.example.java.security.hash.base64.Base64Util;
+
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
@@ -10,7 +12,6 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.Arrays;
-import java.util.Base64;
 
 public class RSATool {
 
@@ -48,8 +49,7 @@ public class RSATool {
         System.out.println();
 
         System.out.println("公钥2");
-        Base64.Encoder encoder = Base64.getEncoder();
-        String stringPublicKey2 = encoder.encodeToString(publicKey.getEncoded());
+        String stringPublicKey2 = Base64Util.getInstance().encodeToString2(publicKey.getEncoded());
         // MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC1+lS/KWOgYHufHjBF0RaJ3qsA59Wz7w32tmbqWVU5I4Ha0UWWKCl3zlnpaApqFDDh9siOGF9AlJDnb1ITGEfW775ChjE4Hhy1/yELjIQNt2G1KJOyrSYUK6uVw9jTW69Jv2CqMmFLKoEVkGpA2w5NeqP9FDXqLNdhxB1u6PTXGQIDAQAB
         System.out.println(stringPublicKey2);
         System.out.println();
@@ -70,7 +70,7 @@ public class RSATool {
         System.out.println();
 
         System.out.println("私钥2:");
-        String stringPrivateKey2 = encoder.encodeToString(privateKey.getEncoded());
+        String stringPrivateKey2 = Base64Util.getInstance().encodeToString2(privateKey.getEncoded());
         // MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBALX6VL8pY6Bge58eMEXRFoneqwDn1bPvDfa2ZupZVTkjgdrRRZYoKXfOWeloCmoUMOH2yI4YX0CUkOdvUhMYR9bvvkKGMTgeHLX/IQuMhA23YbUok7KtJhQrq5XD2NNbr0m/YKoyYUsqgRWQakDbDk16o/0UNeos12HEHW7o9NcZAgMBAAECgYB6QCjMn0aBiC+kToiJbpSgnEju+9AR6AfOdO0ghFD/aL4kvS/tVx+8j5DRf4Z3iwbn1n0XEIJ1BRlvkNZnY4lmVfxGwemP5hemXHQq3ZTex5CcHVXUfVcoo4jN+FSXTrEzMZb3GDvRgSTYCQ4iRS4K+HGsp6mnLUweR6/E9XYcTQJBAOTPWcJSKrmsyB2ZUHnI6Ktl+dD04wdv6b2uDk4P3lGd5r1cBw0EDe+jQ8u8U8l9VfxJnNXT15bdj3HMu7UCcCsCQQDLmkvluloAexc0cA1CJRoxt8i6UuEMqU9LzD9SvixVrCG4/dARiXGCZVVw1+NiraY+PkAF3/i3h8DAPAIDSi/LAkAhHloxpE8G3RmCH0Tku83hsTr9odSSqQI+MEllxyo4yhAx7HYgzituOkV/4dyG15twjv8ifC1CawNuR2IMCzRNAkApu2mdH9I80P4ToHgHO8WftTTug/he+QEo3yeHlTVPJiYPXe7c+VgLyyt1IrsXydIOZgIHcj3vmGK4xFQBSp57AkEAogYC/uWVNYX2Vj8czTV6uW08p5Ou6lOaGkGJmq+HNqwHHk0M/9ChkEzJyVnRNkMwIfdKptk5AFtTVQ9DJxaCgw==
         System.out.println(stringPrivateKey2);
         System.out.println();
@@ -148,8 +148,8 @@ public class RSATool {
     private PublicKey getPublicKey(String publicKeyBase64) {
         try {
             KeyFactory keyFactory = KeyFactory.getInstance(ALGORITHM_NAME);
-            Base64.Decoder decoder = Base64.getDecoder();
-            X509EncodedKeySpec publicpkcs8KeySpec = new X509EncodedKeySpec(decoder.decode(publicKeyBase64));
+            byte[] result  = Base64Util.getInstance().decode(publicKeyBase64);
+            X509EncodedKeySpec publicpkcs8KeySpec = new X509EncodedKeySpec(result);
             return keyFactory.generatePublic(publicpkcs8KeySpec);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
@@ -164,8 +164,8 @@ public class RSATool {
     private PrivateKey getPrivateKey(String privateKeyBase64) {
         try {
             KeyFactory keyFactory = KeyFactory.getInstance(ALGORITHM_NAME);
-            Base64.Decoder decoder = Base64.getDecoder();
-            return keyFactory.generatePrivate(new PKCS8EncodedKeySpec(decoder.decode(privateKeyBase64)));
+            byte[] result  = Base64Util.getInstance().decode(privateKeyBase64);
+            return keyFactory.generatePrivate(new PKCS8EncodedKeySpec(result));
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         } catch (InvalidKeySpecException e) {
@@ -196,8 +196,7 @@ public class RSATool {
             // ERROR:javax.crypto.IllegalBlockSizeException: Data must not be longer than 117 bytes
 //            byte[] encrypted = cipher.doFinal(inputs);
             byte[] encrypted = segmentCipherDoFinal(cipher, inputs, ENCRYPT_DATA_MAX_BYTES_SIZE);
-            Base64.Encoder encoder = Base64.getEncoder();
-            return encoder.encodeToString(encrypted);
+            return Base64Util.getInstance().encodeToString2(encrypted);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -217,8 +216,7 @@ public class RSATool {
             /** 得到Cipher对象对已用公钥加密的数据进行RSA解密 */
             Cipher cipher = Cipher.getInstance(ALGORITHM_NAME);
             cipher.init(Cipher.DECRYPT_MODE, privateKey);
-            Base64.Decoder decoder = Base64.getDecoder();
-            byte[] inputs = decoder.decode(toDecryptContent);
+            byte[] inputs = Base64Util.getInstance().decode(toDecryptContent);;
             /** 执行解密操作 */
             // ERROR:javax.crypto.IllegalBlockSizeException: Data must not be longer than 128 bytes
 //            byte[] decrypted = cipher.doFinal(inputs);
