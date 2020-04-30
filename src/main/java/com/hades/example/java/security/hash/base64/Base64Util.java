@@ -21,6 +21,7 @@ public class Base64Util {
     }
 
     public String encodeToString(String src) {
+        final Base64.Encoder encoder = Base64.getEncoder();
         final byte[] textByte = src.getBytes(StandardCharsets.UTF_8);
         return encoder.encodeToString(textByte);
     }
