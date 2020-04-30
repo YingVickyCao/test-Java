@@ -4,7 +4,6 @@ public class CustomCryp {
     public final static String TO_ENCRYPT_CONTENT = "Hi123";
     public final static String TO_DECRYPT_CONTENT = "Ij234";
 
-    private final String ALGORITHM_NAME = "DES";
     private final char KEY = 1; // 密钥
     private final int ENCRYPT_MODE = 1;
     private final int DECRYPT_MODE = 2;

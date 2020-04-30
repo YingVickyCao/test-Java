@@ -11,8 +11,8 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
-public class Des{
-    private static final String TAG = Des.class.getSimpleName();
+public class DesTool {
+    private static final String TAG = DesTool.class.getSimpleName();
 
     public final static String TO_ENCRYPT_CONTENT = "Hi123";
     public final static byte[] TO_DECRYPT_CONTENT = new byte[]{121, 53, 22, 92, -126, -93, -79, 94};
