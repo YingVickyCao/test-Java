@@ -22,7 +22,7 @@ public class Test {
 
         byte[] dest2 = base64Util.encode(src2);
         System.out.println(new String(dest2, StandardCharsets.UTF_8));  //  5a2X5Liy5paH5a2X
-    
+
         // ------
 
         String src3 = base64Util.decodeToString(dest);
