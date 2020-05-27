@@ -1,4 +1,4 @@
-package com.hades.example.java._condition;
+package com.hades.example.java._2_controlling_execution._condition;
 
 public class test {
 

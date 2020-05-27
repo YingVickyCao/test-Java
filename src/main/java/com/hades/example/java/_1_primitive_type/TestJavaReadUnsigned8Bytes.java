@@ -1,4 +1,4 @@
-package com.hades.example.java._primitive_type;
+package com.hades.example.java._1_primitive_type;
 
 import com.hades.example.java._framework.CollectionUtil;
 import com.hades.example.java._framework.Log;

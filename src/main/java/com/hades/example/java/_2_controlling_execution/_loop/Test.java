@@ -1,4 +1,4 @@
-package com.hades.example.java._loop;
+package com.hades.example.java._2_controlling_execution._loop;
 
 import java.util.ArrayList;
 import java.util.List;

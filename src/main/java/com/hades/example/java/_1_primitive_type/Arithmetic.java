@@ -1,4 +1,4 @@
-package com.hades.example.java._primitive_type;
+package com.hades.example.java._1_primitive_type;
 
 import java.math.BigDecimal;
 
