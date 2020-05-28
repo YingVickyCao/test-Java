@@ -17,6 +17,7 @@ public class ComputePi {
         try {
             String name = "Compute";
 //            Registry registry = LocateRegistry.getRegistry(args[0]);
+            // http://localhost:1099
             Registry registry = LocateRegistry.getRegistry("localhost", 1099);
             Compute comp = (Compute) registry.lookup(name);
             System.out.println("Compute@" + comp.hashCode());
@@ -24,6 +25,7 @@ public class ComputePi {
 //            Pi task = new Pi(Integer.parseInt(args[1]));
             Pi task = new Pi(10);
             System.out.println("start request of pi");
+            System.out.println("Task@" + task.hashCode());
             int sum = comp.sum(1, 5);
             System.out.println(sum);
             BigDecimal pi = comp.executeTask(task);
