@@ -74,7 +74,6 @@ public class ComputeEngine implements Compute {
 //            Registry registry = LocateRegistry.getRegistry();
             Registry registry = LocateRegistry.createRegistry(1099);
             System.out.println("Server registe");
-
             // The code then adds the name to the RMI registry running on the server.
             registry.rebind(name, stub);
             System.out.println("ComputeEngine bound");
