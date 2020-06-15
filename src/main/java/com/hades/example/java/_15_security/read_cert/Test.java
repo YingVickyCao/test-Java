@@ -7,7 +7,7 @@ public class Test {
         CertificateHelper helper = new CertificateHelper(new SHA256HashPublicKey());
         helper.parseCertificate(certName);
 
-        helper.setHashPublicKey(new Base64HashPublicKey());
-        helper.parseCertificate(certName);
+//        helper.setHashPublicKey(new Base64HashPublicKey());
+//        helper.parseCertificate(certName);
     }
 }
