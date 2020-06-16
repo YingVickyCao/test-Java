@@ -1,6 +1,6 @@
 package com.hades.example.java._7_collection.stack;
 
-import com.hades.example.java._framework.Log;
+import com.hades.example.java.lib.Log;
 
 import java.util.Stack;
 

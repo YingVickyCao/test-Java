@@ -1,7 +1,8 @@
 package com.hades.example.java._1_primitive_type;
 
 import com.hades.example.java._framework.CollectionUtil;
-import com.hades.example.java._framework.Log;
+
+import com.hades.example.java.lib.Log;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -219,10 +220,10 @@ public class TestJavaReadUnsigned8Bytes {
         sampleBytes[4] = 254;
         sampleBytes[5] = 255;
         //sampleBytes[6] = 256;
-        Log.d(TAG, "testIsUnsignedByte128", "sampleBytes=" + sampleBytes.toString(), true);
+        Log.d(TAG, "testIsUnsignedByte128" + "sampleBytes=" + sampleBytes.toString());
 
         StringBuffer stringBuffer = CollectionUtil.buildArray2String(sampleBytes);
-        Log.d(TAG, "testIsUnsignedByte128", "sampleBytes=" + stringBuffer, true);
+        Log.d(TAG, "testIsUnsignedByte128" + "sampleBytes=" + stringBuffer);
 
         for (int i = 0; i < sampleBytes.length; i++) {
             isUnsignedByte128(sampleBytes[i]);
@@ -233,6 +234,6 @@ public class TestJavaReadUnsigned8Bytes {
     private static void isUnsignedByte128(short byteValue) {
         short result1 = (short) (byteValue & 0x80);
         boolean result2 = ((byteValue & 0x80) == 128);
-        Log.d(TAG, "isUnsignedByte128", "byteValue=" + byteValue + ",result1=" + result1 + ",result2=" + result2, true);
+        Log.d(TAG, "isUnsignedByte128," + "byteValue=" + byteValue + ",result1=" + result1 + ",result2=" + result2);
     }
 }

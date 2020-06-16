@@ -1,6 +1,6 @@
 package com.hades.example.java._15_security.cryp.dec;
 
-import com.hades.example.java._framework.Log;
+import com.hades.example.java.lib.Log;
 
 import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;

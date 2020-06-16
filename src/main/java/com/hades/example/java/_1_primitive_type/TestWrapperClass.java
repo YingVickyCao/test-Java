@@ -1,6 +1,6 @@
 package com.hades.example.java._1_primitive_type;
 
-import com.hades.example.java._framework.Log;
+import com.hades.example.java.lib.Log;
 
 public class TestWrapperClass {
     private static final String TAG = TestWrapperClass.class.getSimpleName();
@@ -11,17 +11,17 @@ public class TestWrapperClass {
         Integer integer2 = 5;
         Integer integer3 = new Integer(5);
 
-        Log.d(TAG, "main", "integer=" + integer);
-        Log.d(TAG, "main", "integer2=" + integer2);
-        Log.d(TAG, "main", "integer3=" + integer3);
+        Log.d(TAG, "main," + "integer=" + integer);
+        Log.d(TAG, "main," + "integer2=" + integer2);
+        Log.d(TAG, "main," + "integer3=" + integer3);
 
-        Log.d(TAG, "main", "char min=" + Character.MIN_VALUE);
-        Log.d(TAG, "main", "char max=" + Character.MAX_VALUE);
+        Log.d(TAG, "main," + "char min=" + Character.MIN_VALUE);
+        Log.d(TAG, "main," + "char max=" + Character.MAX_VALUE);
 
-        Log.d(TAG, "main", "float min=" + Float.MIN_VALUE);//1.4E-45
-        Log.d(TAG, "main", "float max=" + Float.MAX_VALUE);//3.4028235E38
+        Log.d(TAG, "main," + "float min=" + Float.MIN_VALUE);//1.4E-45
+        Log.d(TAG, "main," + "float max=" + Float.MAX_VALUE);//3.4028235E38
 
-        Log.d(TAG, "main", "double min=" + Double.MIN_VALUE);//4.9E-324
-        Log.d(TAG, "main", "double max=" + Double.MAX_VALUE);//1.7976931348623157E308
+        Log.d(TAG, "main," + "double min=" + Double.MIN_VALUE);//4.9E-324
+        Log.d(TAG, "main," + "double max=" + Double.MAX_VALUE);//1.7976931348623157E308
     }
 }
