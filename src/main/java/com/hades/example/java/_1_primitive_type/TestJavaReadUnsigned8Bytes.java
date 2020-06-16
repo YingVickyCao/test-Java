@@ -1,12 +1,11 @@
 package com.hades.example.java._1_primitive_type;
 
-import com.hades.example.java._framework.CollectionUtil;
-
 import com.hades.example.java.lib.Log;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
@@ -40,7 +39,7 @@ public class TestJavaReadUnsigned8Bytes {
     public static void main(String[] args) {
         // TODO Auto-generated method stub
         //read8BitesUnsignedBytes_by_int(); // error
-        read8BitesUnsignedBytes_by_byte(); // ok
+//        read8BitesUnsignedBytes_by_byte(); // ok
         //read8BitesUnsignedBytes_by_StringList();  // error
 
         testIsUnsignedByte128();
@@ -222,7 +221,7 @@ public class TestJavaReadUnsigned8Bytes {
         //sampleBytes[6] = 256;
         Log.d(TAG, "testIsUnsignedByte128" + "sampleBytes=" + sampleBytes.toString());
 
-        StringBuffer stringBuffer = CollectionUtil.buildArray2String(sampleBytes);
+        String stringBuffer = Arrays.toString(sampleBytes);
         Log.d(TAG, "testIsUnsignedByte128" + "sampleBytes=" + stringBuffer);
 
         for (int i = 0; i < sampleBytes.length; i++) {
