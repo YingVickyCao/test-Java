@@ -14,13 +14,13 @@ public class Test {
         String src = "字串文字";
         byte[] src2 = src.getBytes(StandardCharsets.UTF_8);
 
-        String dest = base64Tool.encodeToString(src);
+        String dest = base64Tool.encode_String2String(src);
         System.out.println(dest);   //  5a2X5Liy5paH5a2X
 
-        String dest3 = base64Tool.encodeToString2(src2);
+        String dest3 = base64Tool.encode_Bytes2String(src2);
         System.out.println(dest3);  // 5a2X5Liy5paH5a2X
 
-        byte[] dest2 = base64Tool.encode(src2);
+        byte[] dest2 = base64Tool.encode_bytes2bytes(src2);
         System.out.println(new String(dest2, StandardCharsets.UTF_8));  //  5a2X5Liy5paH5a2X
 
         // ------

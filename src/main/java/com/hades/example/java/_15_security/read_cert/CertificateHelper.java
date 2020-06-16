@@ -1,6 +1,7 @@
 package com.hades.example.java._15_security.read_cert;
 
 import com.hades.example.java._11_string_stringbuffer_stringbuilder.StringTool;
+import com.hades.example.java._15_security.hash.base64.Base64Tool;
 import com.hades.example.java._15_security.hash.sha.SHATool;
 
 import java.io.FileInputStream;
@@ -12,12 +13,14 @@ import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
 // https://blog.csdn.net/qq_25933249/article/details/103304964
 public class CertificateHelper {
     private IHashPublicKey mHashPublicKey;
+
+    private final String ORIGIN_CERT_HASH = "AEFE2A5934BA2B624DBD50D7424F1A88EF5D0CF0B37F51A8E5D48FFB405DAD57";
+    private final String ORIGIN_CERT_HASH_OF_PUBLIC_KEY = "[-126, 35, 89, -43, -26, -75, 83, 99, -41, 31, -46, -96, -114, 1, -125, -85, -107, 27, -22, 121, -36, 59, 97, 49, 125, -117, 125, 109, 110, -18, 120, -89]";
 
     public CertificateHelper(IHashPublicKey hashPublicKey) {
         this.mHashPublicKey = hashPublicKey;
@@ -27,7 +30,7 @@ public class CertificateHelper {
         mHashPublicKey = hashPublicKey;
     }
 
-    public byte[] parseCertificate(String certName) {
+    public void parseCertificate(String certName) {
         /**
          * X.509 is a standard format for public key certificates, digital documents that securely associate cryptographic key pairs with identities such as websites, individuals, or organizations.
          */
@@ -37,25 +40,27 @@ public class CertificateHelper {
             CertificateFactory cf = CertificateFactory.getInstance("X.509");
             // Read Certificate File
             X509Certificate cert = (X509Certificate) cf.generateCertificate(inputStream);
-            System.out.println(cert.getVersion());  // 3
-            System.out.println(cert.getSerialNumber()); // 110
+//            System.out.println(cert.getVersion());  // 3
+//            System.out.println(cert.getSerialNumber()); // 110
 
-            SimpleDateFormat dateformat = new SimpleDateFormat("yyyy/MM/dd");
-            System.out.println(dateformat.format(cert.getNotBefore())); // 2018/11/07
-            System.out.println(dateformat.format(cert.getNotAfter()));  // 2020/11/06
+//            SimpleDateFormat dateformat = new SimpleDateFormat("yyyy/MM/dd");
+//            System.out.println(dateformat.format(cert.getNotBefore())); // 2018/11/07
+//            System.out.println(dateformat.format(cert.getNotAfter()));  // 2020/11/06
 
-            System.out.println(cert.getSubjectDN().getName());  // CN=*.csdn.net, OU=IT, O=北京创新乐知信息技术有限公司, L=北京市, C=CN
-            System.out.println(cert.getIssuerDN().getName());  // CN=Avast trusted CA, OU=Software Development, O=AVAST, ST=Prague, C=CZ
-            System.out.println(cert.getSigAlgName());  // SHA256withRSA
-            
-            checkCertIsModified(cert);
+//            System.out.println(cert.getSubjectDN().getName());  // CN=*.csdn.net, OU=IT, O=北京创新乐知信息技术有限公司, L=北京市, C=CN
+//            System.out.println(cert.getIssuerDN().getName());  // CN=Avast trusted CA, OU=Software Development, O=AVAST, ST=Prague, C=CZ
+//            System.out.println(cert.getSigAlgName());  // SHA256withRSA
+
+//            checkCertIsModified(cert);
 
             // Check Certificate is out of date
-            cert.checkValidity();
+//            cert.checkValidity();
 //            Certificate cert = cf.generateCertificate(inputStream);
             // Get Public Key of Certificate
             PublicKey publicKey = cert.getPublicKey();
-            return hash(publicKey);
+            hash(publicKey);
+
+            printPin(cert);
         } catch (CertificateException | FileNotFoundException e) {
             e.printStackTrace();
         } finally {
@@ -67,7 +72,6 @@ public class CertificateHelper {
                 }
             }
         }
-        return null;
     }
 
     // How to check Certificate is modified ? Use Fingerprints algorithm to hash Certificate Hash Value
@@ -78,6 +82,7 @@ public class CertificateHelper {
 //                    .setAlgorithmName(SHATool.ALGORITHM_NAME_SH1)
                     .setAlgorithmName(SHATool.ALGORITHM_NAME_SHA256)
                     .digest_bytes2String(encoded);
+
             // AEFE2A5934BA2B624DBD50D7424F1A88EF5D0CF0B37F51A8E5D48FFB405DAD57
             // 6A6FECCB003E292CFFF66D0A70B8B61386C30CC7
             System.out.println(desc);
@@ -94,19 +99,32 @@ public class CertificateHelper {
         return false;
     }
 
-    private final String ORIGIN_CERT_HASH = "AEFE2A5934BA2B624DBD50D7424F1A88EF5D0CF0B37F51A8E5D48FFB405DAD57";
-    private final String ORIGIN_CERT_HASH_OF_PUBLIC_KEY = "[-126, 35, 89, -43, -26, -75, 83, 99, -41, 31, -46, -96, -114, 1, -125, -85, -107, 27, -22, 121, -36, 59, 97, 49, 125, -117, 125, 109, 110, -18, 120, -89]";
-
     public byte[] hash(PublicKey publicKey) {
-        byte[] desc = mHashPublicKey.hash(publicKey.getEncoded());
+        byte[] publick_key = mHashPublicKey.hash(publicKey.getEncoded());
         // Hash public key
-        System.out.println(Arrays.toString(publicKey.getEncoded()));
         System.out.println("-----------------公钥--------------------");
-        System.out.println(Arrays.toString(desc));
+        // [-126, 35, 89, -43, -26, -75, 83, 99, -41, 31, -46, -96, -114, 1, -125, -85, -107, 27, -22, 121, -36, 59, 97, 49, 125, -117, 125, 109, 110, -18, 120, -89]
+        System.out.println(Arrays.toString(publick_key));
+//        boolean isRightPublicKey = Arrays.toString(publick_key).equalsIgnoreCase(ORIGIN_CERT_HASH_OF_PUBLIC_KEY);
+//        System.out.println("public key:" + (isRightPublicKey ? "equal" : "not equal"));
 
-        boolean isRightPublicKey = Arrays.toString(desc).equalsIgnoreCase(ORIGIN_CERT_HASH_OF_PUBLIC_KEY);
-        System.out.println("public key:" + (isRightPublicKey ? "equal" : "not equal"));
+        // [22, -105, -115, 22, -81, 28, 113, 35, 31, 63, 10, -39, -105, -62, 25, -90, -16, -64, 126, 38, -72, -66, -65, 123, 37, -99, 96, 66, -117, 16, 116, 16]
+        byte[] s = SHATool.getInstance().digest_bytes2bytes(publick_key);// Choose any hash,e.g, Base64, SHA-256
+        System.out.println(Arrays.toString(s));
         System.out.println("-----------------公钥--------------------");
-        return desc;
+        return publick_key;
+    }
+
+
+    private void printPin(X509Certificate cert) {
+//        Base64(SHA256(SubjectPublicKeyInfo))
+        try {
+            byte[] sha256 = SHATool.getInstance().digest_bytes2bytes(cert.getPublicKey().getEncoded());
+            System.out.println(sha256);
+            String base64 = Base64Tool.getInstance().encode_Bytes2String(sha256);
+            System.out.println(base64);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -49,7 +49,7 @@ public class RSATool {
         System.out.println();
 
         System.out.println("公钥2");
-        String stringPublicKey2 = Base64Tool.getInstance().encodeToString2(publicKey.getEncoded());
+        String stringPublicKey2 = Base64Tool.getInstance().encode_Bytes2String(publicKey.getEncoded());
         // MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC1+lS/KWOgYHufHjBF0RaJ3qsA59Wz7w32tmbqWVU5I4Ha0UWWKCl3zlnpaApqFDDh9siOGF9AlJDnb1ITGEfW775ChjE4Hhy1/yELjIQNt2G1KJOyrSYUK6uVw9jTW69Jv2CqMmFLKoEVkGpA2w5NeqP9FDXqLNdhxB1u6PTXGQIDAQAB
         System.out.println(stringPublicKey2);
         System.out.println();
@@ -70,7 +70,7 @@ public class RSATool {
         System.out.println();
 
         System.out.println("私钥2:");
-        String stringPrivateKey2 = Base64Tool.getInstance().encodeToString2(privateKey.getEncoded());
+        String stringPrivateKey2 = Base64Tool.getInstance().encode_Bytes2String(privateKey.getEncoded());
         // MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBALX6VL8pY6Bge58eMEXRFoneqwDn1bPvDfa2ZupZVTkjgdrRRZYoKXfOWeloCmoUMOH2yI4YX0CUkOdvUhMYR9bvvkKGMTgeHLX/IQuMhA23YbUok7KtJhQrq5XD2NNbr0m/YKoyYUsqgRWQakDbDk16o/0UNeos12HEHW7o9NcZAgMBAAECgYB6QCjMn0aBiC+kToiJbpSgnEju+9AR6AfOdO0ghFD/aL4kvS/tVx+8j5DRf4Z3iwbn1n0XEIJ1BRlvkNZnY4lmVfxGwemP5hemXHQq3ZTex5CcHVXUfVcoo4jN+FSXTrEzMZb3GDvRgSTYCQ4iRS4K+HGsp6mnLUweR6/E9XYcTQJBAOTPWcJSKrmsyB2ZUHnI6Ktl+dD04wdv6b2uDk4P3lGd5r1cBw0EDe+jQ8u8U8l9VfxJnNXT15bdj3HMu7UCcCsCQQDLmkvluloAexc0cA1CJRoxt8i6UuEMqU9LzD9SvixVrCG4/dARiXGCZVVw1+NiraY+PkAF3/i3h8DAPAIDSi/LAkAhHloxpE8G3RmCH0Tku83hsTr9odSSqQI+MEllxyo4yhAx7HYgzituOkV/4dyG15twjv8ifC1CawNuR2IMCzRNAkApu2mdH9I80P4ToHgHO8WftTTug/he+QEo3yeHlTVPJiYPXe7c+VgLyyt1IrsXydIOZgIHcj3vmGK4xFQBSp57AkEAogYC/uWVNYX2Vj8czTV6uW08p5Ou6lOaGkGJmq+HNqwHHk0M/9ChkEzJyVnRNkMwIfdKptk5AFtTVQ9DJxaCgw==
         System.out.println(stringPrivateKey2);
         System.out.println();
@@ -196,7 +196,7 @@ public class RSATool {
             // ERROR:javax.crypto.IllegalBlockSizeException: Data must not be longer than 117 bytes
 //            byte[] encrypted = cipher.doFinal(inputs);
             byte[] encrypted = segmentCipherDoFinal(cipher, inputs, ENCRYPT_DATA_MAX_BYTES_SIZE);
-            return Base64Tool.getInstance().encodeToString2(encrypted);
+            return Base64Tool.getInstance().encode_Bytes2String(encrypted);
         } catch (Exception ex) {
             ex.printStackTrace();
         }

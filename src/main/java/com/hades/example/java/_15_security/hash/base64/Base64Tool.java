@@ -20,18 +20,18 @@ public class Base64Tool {
     private Base64Tool() {
     }
 
-    public byte[] encode(byte[] src) {
+    public byte[] encode_bytes2bytes(byte[] src) {
         final Base64.Encoder encoder = Base64.getEncoder();
         return encoder.encode(src);
     }
 
-    public String encodeToString(String src) {
+    public String encode_String2String(String src) {
         final Base64.Encoder encoder = Base64.getEncoder();
         final byte[] textByte = src.getBytes(StandardCharsets.UTF_8);
         return encoder.encodeToString(textByte);
     }
 
-    public String encodeToString2(byte[] src) {
+    public String encode_Bytes2String(byte[] src) {
         final Base64.Encoder encoder = Base64.getEncoder();
         return encoder.encodeToString(src);
     }

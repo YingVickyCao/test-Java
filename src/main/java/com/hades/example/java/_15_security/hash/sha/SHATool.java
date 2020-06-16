@@ -47,8 +47,8 @@ public class SHATool {
         try {
             digest = MessageDigest.getInstance(mAlgorithmName);
             byte[] encodedhash = digest.digest(originalString.getBytes(StandardCharsets.UTF_8));
-//            return bytesToHex(encodedhash);
-            return bytesToHex2(encodedhash);
+            return bytesToHex(encodedhash);
+//            return bytesToHex2(encodedhash);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
@@ -71,8 +71,8 @@ public class SHATool {
         try {
             digest = MessageDigest.getInstance(mAlgorithmName);
             byte[] desc = digest.digest(src);
-//            return bytesToHex(desc);
-            return bytesToHex2(desc);
+            return bytesToHex(desc);
+//            return bytesToHex2(desc);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }

@@ -222,7 +222,7 @@ public class AESTool {
             byte[] cipherTextBytes = encrypt(clearText.getBytes(StandardCharsets.UTF_8), key);
 
             // 2 对密文字节数组进行BASE64 encoder 得到 BASE6输出的密文
-            return Base64Tool.getInstance().encodeToString2(cipherTextBytes);
+            return Base64Tool.getInstance().encode_Bytes2String(cipherTextBytes);
         } catch (Exception e) {
             e.printStackTrace();
         }
