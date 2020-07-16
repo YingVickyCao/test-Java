@@ -1,7 +1,5 @@
 package com.hades.example.java._17_io;
 
-import com.hades.example.java.lib.Log;
-
 import java.io.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
@@ -13,14 +11,13 @@ public class TestZip {
     }
 
     private void test() {
-        final String zip_path = "zip_dir/GitTest-master.zip";
+//        final String zip_path = "zip_ /dir/GitTest-master.zip";
+        final String zip_path = "zip_dir/t_1594807178643.zip";
         unzip(new File(zip_path));
     }
 
     private void zip() {
     }
-
-
     private void unzip(File file) {
         InputStream is;
         ZipInputStream zis;
@@ -54,6 +51,6 @@ public class TestZip {
             e.printStackTrace();
         }
         File extractedFile = new File(file.getAbsolutePath().replace(".zip", ""));
-        if (!file.delete()) Log.d("unpackZip", "Failed to deleted the zip file.");
+//        if (!file.delete()) Log.d("unpackZip", "Failed to deleted the zip file.");
     }
 }
