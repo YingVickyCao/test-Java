@@ -1,7 +1,5 @@
 package com.hades.java.test.cryptographic.cert;
 
-import sun.misc.BASE64Encoder;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.security.PublicKey;
@@ -9,6 +7,7 @@ import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.Date;
 
 public class ParseCertificateFromFileExample {
@@ -192,8 +191,7 @@ public class ParseCertificateFromFileExample {
         byte[] encodedKeyOfPublicKey = publicKey.getEncoded();
         System.out.println(Arrays.toString(encodedKeyOfPublicKey));
 
-        BASE64Encoder encoder = new BASE64Encoder();
-        String encoded = encoder.encode(encodedKeyOfPublicKey);
-        System.out.println("publicKey key value after hashed:" + encoded);
+        byte[] encoded = Base64.getEncoder().encode(encodedKeyOfPublicKey);
+        System.out.println("publicKey key value after hashed:" + Arrays.toString(encoded));
     }
 }
