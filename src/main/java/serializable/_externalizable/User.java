@@ -1,14 +1,15 @@
-package serializable._4_externalizable;
+package serializable._externalizable;
 
 import java.io.*;
 
 class User implements Externalizable {
     private int id;
+    private House house;
     private transient String name;
 
     private static int score;
 
-    // 使用Externalizable时，必须提供默认构造函数，否则报错：java.io.InvalidClassException: serializable._4_externalizable.User; no valid constructor
+    // 使用Externalizable时，必须提供public的默认构造函数，否则报错：java.io.InvalidClassException: serializable._4_externalizable.User; no valid constructorß
     public User() {
     }
 
@@ -18,6 +19,14 @@ class User implements Externalizable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public House getHouse() {
+        return house;
+    }
+
+    public void setHouse(House house) {
+        this.house = house;
     }
 
     public String getName() {
@@ -51,6 +60,7 @@ class User implements Externalizable {
     public void writeExternal(ObjectOutput out) throws IOException {
         out.writeInt(id);
         out.writeUTF(name);
+        out.writeObject(house);
         out.writeInt(score);
     }
 
@@ -58,6 +68,7 @@ class User implements Externalizable {
     public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
         id = in.readInt();
         name = in.readUTF();
+        house = (House) in.readObject();
         score = in.readInt();
     }
 
@@ -65,6 +76,7 @@ class User implements Externalizable {
     public String toString() {
         return "User{" +
                 "id=" + id +
+                ", house=" + house +
                 ", name='" + name + '\'' +
                 ", score='" + score + '\'' +
                 '}';

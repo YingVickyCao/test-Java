@@ -1,4 +1,4 @@
-package serializable._4_externalizable;
+package serializable._externalizable;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -51,28 +51,36 @@ public class ExternalizableExample {
     }
 
     private void serialize() {
-        User user = new User();
+        User user = new User(); // User@453
         user.setId(1);
         user.setName("name_1");
         user.setScore(100);
+        user.setHouse(new House());
 
         ObjectOutputStream outStream;
         ObjectInputStream inStream;
         try {
             outStream = new ObjectOutputStream(new FileOutputStream(filePath));
+            // 调用 writeObject 时，调用writeExternal
             outStream.writeObject(user);
             outStream.flush();
             outStream.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+        user.setScore(10);
     }
 
     private void deserialize() {
         try {
             ObjectInputStream inStream;
             inStream = new ObjectInputStream(new FileInputStream(filePath));
-            User user = (User) inStream.readObject();
+            // 调用 readObject 时，调用  readExternal，然后invoke 默认构造函数，最后invoke set/get
+            // 序列化前与序列化后的地址也不同。
+            // score 10 -> 100,说明static field 参与了反序列化
+            // 序列化后：User{id=1, house=House{date=Mon Jan 30 16:16:34 CST 2023}, name='name_1', score='100'}
+            User user = (User) inStream.readObject(); // User@760
+            // 反序列是深拷贝
             System.out.println("序列化后：" + user.toString());
         } catch (Exception ex) {
             ex.printStackTrace();
