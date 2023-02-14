@@ -1,11 +1,11 @@
-package com.hades.java.example._generic_type._2_generic_type_of_subclass;
+package com.hades.java.example._generic_type;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Example2 {
+public class _2_Generic_Type_of_Subclass {
     public static void main(String[] args) {
-        Example2 example2 = new Example2();
+        _2_Generic_Type_of_Subclass example2 = new _2_Generic_Type_of_Subclass();
         example2.test();
     }
 
@@ -18,13 +18,12 @@ public class Example2 {
          */
 //        List<Fruit> fruits = apples;
     }
-}
 
+    class Fruit {
 
-class Fruit {
+    }
 
-}
+    class Apple extends Fruit {
 
-class Apple extends Fruit {
-
+    }
 }
