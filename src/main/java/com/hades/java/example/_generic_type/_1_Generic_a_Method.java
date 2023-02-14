@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * 泛型方法
  */
-public class _3_Generic_a_Method {
+public class _1_Generic_a_Method {
     public static void main(String[] args) {
         {
             print(1);

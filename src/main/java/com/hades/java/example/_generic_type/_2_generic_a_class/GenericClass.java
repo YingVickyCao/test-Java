@@ -1,4 +1,4 @@
-package com.hades.java.example._generic_type._4_generic_a_class;
+package com.hades.java.example._generic_type._2_generic_a_class;
 
 /**
  * 泛型类

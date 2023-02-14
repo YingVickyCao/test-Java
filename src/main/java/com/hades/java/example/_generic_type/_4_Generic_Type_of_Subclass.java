@@ -3,9 +3,9 @@ package com.hades.java.example._generic_type;
 import java.util.ArrayList;
 import java.util.List;
 
-public class _2_Generic_Type_of_Subclass {
+public class _4_Generic_Type_of_Subclass {
     public static void main(String[] args) {
-        _2_Generic_Type_of_Subclass example2 = new _2_Generic_Type_of_Subclass();
+        _4_Generic_Type_of_Subclass example2 = new _4_Generic_Type_of_Subclass();
         example2.test();
     }
 

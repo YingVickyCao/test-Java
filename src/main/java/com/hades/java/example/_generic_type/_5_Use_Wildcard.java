@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class _6_Use_Wildcard {
+public class _5_Use_Wildcard {
     public static void main(String[] args) {
-        _6_Use_Wildcard example = new _6_Use_Wildcard();
+        _5_Use_Wildcard example = new _5_Use_Wildcard();
         example.test();
     }
 
