@@ -32,9 +32,9 @@ public class _7_Use_Wildcard_super {
         System.out.println();
 
         sale(v1);
-        sale(v2);
+//        sale(v2);
         sale(v3);
-        sale(v4);
+//        sale(v4);
     }
 
     /*
