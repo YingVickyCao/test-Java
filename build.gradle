@@ -5,7 +5,7 @@ plugins {
 group 'com.hades.java.test'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 1.8
+sourceCompatibility = 17
 
 repositories {
     mavenCentral()
@@ -33,6 +33,5 @@ test {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter'
     testImplementation group: 'junit', name: 'junit', version: '4.12'
 }
