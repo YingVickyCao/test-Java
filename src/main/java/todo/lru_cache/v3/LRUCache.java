@@ -67,7 +67,7 @@ public class LRUCache<K, V> {
             node.v = v; // TODO: easy to forget
             map.put(k, node);
             // add the head
-            addToHead(node);
+            addToHead(node); // TODO: easy to forget
             if (map.size() > size) {
                 // remove tail
                 Node<K, V> n = removeTail();
