@@ -63,15 +63,15 @@ public class LRUCache<K, V> {
             moveToHead(node);
         } else {
             Node<K, V> node = new Node<>();
-            node.k = k;
-            node.v = v;
+            node.k = k; // TODO: easy to forget
+            node.v = v; // TODO: easy to forget
             map.put(k, node);
             // add the head
             addToHead(node);
             if (map.size() > size) {
                 // remove tail
                 Node<K, V> n = removeTail();
-                map.remove(n.k);
+                map.remove(n.k); // TODO: easy to forget
             }
         }
     }
