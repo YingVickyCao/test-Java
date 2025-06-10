@@ -2,7 +2,6 @@ package todo.lru_cache.v3;
 
 import java.util.HashMap;
 import java.util.Set;
-import java.util.jar.JarEntry;
 
 // https://developer.aliyun.com/article/1595190
 public class LRUCache<K, V> {
