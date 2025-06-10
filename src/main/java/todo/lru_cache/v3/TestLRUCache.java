@@ -7,20 +7,20 @@ public class TestLRUCache {
 //        System.out.println(test.keySet()); // [1]
         test.print();
 
-        test.put("2", 2); // [1, 2]
+        test.put("2", 2); // [2, 1]
 //        System.out.println(test.keySet());
         test.print();
 
         test.put("3", 3);
-//        System.out.println(test.keySet()); // [1, 2, 3]
+//        System.out.println(test.keySet()); // [3, 2, 1]
         test.print();
 
         test.put("4", 4);
-//        System.out.println(test.keySet()); // [1, 2, 3, 4] ->  [2, 3, 4]
+//        System.out.println(test.keySet()); // [4, 3, 2, 1] ->  [4, 3, 2]
         test.print();
 
         test.put("2", 2);
-//        System.out.println(test.keySet()); // [3, 4, 2]
+//        System.out.println(test.keySet()); // [2, 4, 3]
         test.print();
     }
 }

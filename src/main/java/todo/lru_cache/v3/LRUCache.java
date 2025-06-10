@@ -1,37 +1,32 @@
 package todo.lru_cache.v3;
 
 import java.util.HashMap;
-import java.util.Set;
 
 // https://developer.aliyun.com/article/1595190
+
+
 public class LRUCache<K, V> {
-    private static class Node<K, V> {
-        K key;
-        V value;
+    static class Node<K, V> {
+        K k;
+        V v;
         Node<K, V> prev;
         Node<K, V> next;
-
-        Node(K k, V v) {
-            this.key = k;
-            this.value = v;
-        }
     }
 
-    private final int capacity;
-    private final HashMap<K, Node<K, V>> map;
-    private final Node<K, V> head;
-    private final Node<K, V> tail;
+    int size;
+    HashMap<K, Node<K, V>> map = new HashMap<>();
+    Node<K, V> tail;
+    Node<K, V> head;
 
-    LRUCache(int capacity) {
-        this.capacity = capacity;
-        map = new HashMap<>(capacity);
-        head = new Node<>(null, null);
-        tail = new Node<>(null, null);
+    public LRUCache(int size) {
+        this.size = size;
+        head = new Node<K, V>();
+        tail = new Node<K, V>();
         head.next = tail;
         tail.prev = head;
     }
 
-    V get(K key) {
+    V get(K k) {
         /*
          * if(key existed){
          *      move the node to head
@@ -41,15 +36,16 @@ public class LRUCache<K, V> {
          *      return null
          * }
          */
-        if (!map.containsKey(key)) {
+        if (!map.containsKey(k)) {
             return null;
         }
-        Node<K, V> node = map.get(key);
+        Node<K, V> node = map.get(k);
+        // move to head
         moveToHead(node);
-        return node.value;
+        return node.v;
     }
 
-    void put(K key, V value) {
+    void put(K k, V v) {
         /*
          * if (key not existed){
          *      // move to head
@@ -61,58 +57,63 @@ public class LRUCache<K, V> {
          *      }
          * }
          */
-        if (map.containsKey(key)) {
-            Node<K, V> node = map.get(key);
+        if (map.containsKey(k)) {
+            Node<K, V> node = map.get(k);
+            // move to head
             moveToHead(node);
         } else {
-            Node<K, V> node = new Node<>(key, value);
-            map.put(key, node);
+            Node<K, V> node = new Node<>();
+            node.k = k;
+            node.v = v;
+            map.put(k, node);
+            // add the head
             addToHead(node);
-            if (map.size() > capacity) {
-                Node<K, V> leastNode = removeLeastNode();
-                map.remove(leastNode.key);
+            if (map.size() > size) {
+                // remove tail
+                Node<K, V> n = removeTail();
+                map.remove(n.k);
             }
         }
     }
 
-    void moveToHead(Node<K, V> node) {
-        // remove the node
+
+    private void moveToHead(Node<K, V> node) {
         removeNode(node);
-        // add the head
         addToHead(node);
     }
 
-    void removeNode(Node<K, V> node) {
-        node.prev.next = node.next;
-        node.next.prev = node.prev;
+    private void removeNode(Node<K, V> y) {
+        // x, y, z
+        Node<K, V> x = y.prev;
+        Node<K, V> z = y.next;
+        x.next = z;
+        z.prev = x;
     }
 
-    void addToHead(Node<K, V> node) {
-        node.prev = head;
-        node.next = head.next;
-
+    private void addToHead(Node<K, V> node) {
+        // 0
         Node<K, V> n0 = head.next;
         head.next = node;
+
+        node.prev = head;
+        node.next = n0;
+
         n0.prev = node;
     }
 
-    Node<K, V> removeLeastNode() {
-        Node<K, V> least = tail.prev;
-        Node<K, V> t = tail.prev.prev;
-        t.next = tail;
-        tail.prev = t;
-        return least;
+    private Node<K, V> removeTail() {
+        Node<K, V> n = tail.prev;
+        Node<K, V> n_1 = tail.prev.prev;
+        n_1.next = tail;
+        tail.prev = n_1;
+        return n;
     }
 
-    Set<K> keySet() {
-        return map.keySet();
-    }
-
-    public void print() {
+    void print() {
         Node<K, V> t = head;
         while (t.next != null) {
-            if (t.next.key !=null){
-                System.out.print(t.next.key + " ");
+            if (t.next.k != null) {
+                System.out.print(t.next.k + " ");
             }
             t = t.next;
         }
