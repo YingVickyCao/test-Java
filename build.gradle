@@ -28,10 +28,12 @@ repositories {
     mavenCentral()
 }
 
-test {
-    useJUnitPlatform()
-}
+//  测试使用 JUnit 5
+//test {
+//    useJUnitPlatform()
+//}
 
 dependencies {
+    // 测试使用 JUnit
     testImplementation group: 'junit', name: 'junit', version: '4.12'
 }
