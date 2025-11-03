@@ -1,4 +1,4 @@
-package com.hades.java.example.pass_value;
+package com.hades.java.example;
 
 /**
  * https://mp.weixin.qq.com/s?__biz=Mzg3ODY2MzU2MQ==&mid=2247488726&idx=4&sn=f127d7b22cbd59cc8de3e137bdd5b10d&chksm=cf111630f8669f2609cc4d4a2ad084b67c7d992ea2a2da39afe62ec30cfa62b6bb26b2e56707&token=1436311520&lang=zh_CN#rd

@@ -1,4 +1,4 @@
-package com.hades.example.android.others.runtime_data_area_demo;
+package com.hades.java.example.string.runtime_data_area_demo;
 
 public class RuntimeDataAreaDemo2 {
     public void test() {
