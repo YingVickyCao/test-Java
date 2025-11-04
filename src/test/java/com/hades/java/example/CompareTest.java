@@ -3,12 +3,15 @@ package com.hades.java.example;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Objects;
 
 /**
  * https://mp.weixin.qq.com/s?__biz=Mzg3ODY2MzU2MQ==&mid=2247488742&idx=1&sn=44fd4ca0e6565caf3076d5cc4737d53d&chksm=cf111600f8669f168237bcb8aa65415b1aad29a74abdb9518c8d820f219cc332c47cec5d545d&token=1436311520&lang=zh_CN#rd
  * <p>
  * 使用equals和==进行比较的区别？
+ * 谈谈如何重写equals()方法？为什么还要重写hashCode()？
  */
 public class CompareTest {
     /**
@@ -69,6 +72,26 @@ public class CompareTest {
             Assert.assertTrue(s1.equals(s2));
         }
     }
+
+    @Test
+    public void test_3() {
+        // 重写equals()和hashset(),确保在HashSet中正常工作。
+        HashSet<Stu2> set = new HashSet<>();
+        set.add(new Stu2(1));
+        Stu2 stu2 = new Stu2(1);
+
+        Assert.assertTrue(set.contains(stu2));
+    }
+
+    @Test
+    public void test_4() {
+        // 重写equals()和hashset(),确保对象作为HashMap的key时正常工作。
+        HashMap<Stu2, Integer> set = new HashMap<>();
+        set.put(new Stu2(1), 1);
+        Stu2 stu2 = new Stu2(1);
+
+        Assert.assertTrue(set.containsKey(stu2));
+    }
 }
 
 class Stu {
@@ -88,10 +111,16 @@ class Stu2 {
 
     @Override
     public boolean equals(Object o) {
+        // 1 检查引用是否相等
         if (this == o) return true;
+        // 2. 检查 null
+        // 3 检查类型兼容性
         if (o == null || getClass() != o.getClass()) return false;
+        // 4. 进行逻辑字段比较
         Stu2 stu2 = (Stu2) o;
+        super.equals(o);
         return a == stu2.a;
+
     }
 
     @Override
